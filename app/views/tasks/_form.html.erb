@@ -1,0 +1,15 @@
+<% if @task.errors.present?%>
+<ul>
+<% @task.errors.each do |error, message| %>
+<li><%= "#{error.capitalize} #{message} "%></li>
+<% end %>
+</ul>
+<% end %>
+
+
+<%= simple_form_for(task) do |f| %>
+    <%= f.input :username, label: "名稱" %>
+    <%= f.input :task, label: "任務" %>
+    <%= f.input :content, as: :text, label: "內容" %>
+    <%= f.submit %>
+<% end %>
