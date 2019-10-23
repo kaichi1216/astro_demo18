@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     @task.user = User.first
     #這裡暫時沒有建立User 
     if @task.save 
-      redirect_to tasks_path, notice: "新增任務成功"
+      redirect_to tasks_path, notice: t('.notice')
     else  
       render :new
     end
@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to tasks_path, notice: "編輯成功"
+      redirect_to tasks_path, notice: t('.notice')
     else  
       render :edit
     end
@@ -37,9 +37,9 @@ class TasksController < ApplicationController
 
   def destroy
     if @task.destroy
-      notice = "刪除成功"
+      notice = t('.notice')
     else 
-      notice = "刪除失敗"
+      notice = t('.not_success')
     end
       redirect_to tasks_path, notice: notice
   end

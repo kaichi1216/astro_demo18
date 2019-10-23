@@ -1,12 +1,12 @@
-<h1>任務列表</h1>
+<h1><%=t('views.tasks_topic')%></h1>
 
-<%= link_to "新增任務", new_task_path %>
+<%= link_to t('views.new_task'), new_task_path %>
 
 <table>
   <thead>
     <tr>
-      <td>任務</td>
-      <td>日期</td>
+      <td><%=t('views.tasks.title')%></td>
+      <td><%=t('views.tasks.date')%></td>
     </tr>
   </thead>
   <tbody>
@@ -15,9 +15,9 @@
       <td><%= task.task %></td>
       <td><%= task.created_at %></td>
       <td>
-        <%= link_to "編輯", edit_task_path(task) %>
-        <%= link_to "查看", task_path(task) %>
-        <%= link_to "刪除", task_path(task), method: "delete", data:{ confirm: "確定刪除這個任務嗎?"} %>
+        <%= link_to t('views.tasks.edit'), edit_task_path(task) %>
+        <%= link_to t('views.tasks.show'), task_path(task) %>
+        <%= link_to t('views.tasks.delete'), task_path(task), method: "delete", data:{ confirm: t('views.tasks.delete_msg')} %>
       </td>
     </tr>
     <% end %>

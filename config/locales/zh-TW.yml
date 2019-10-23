@@ -1,0 +1,24 @@
+zh-TW:
+  views:
+    edit_task: "編輯任務"
+    new_task: "新增任務"
+    show_task: "任務內容"
+    tasks_topic: "Test18 任務列表"
+    home: "首頁"
+    submit_btn: "送出"
+    tasks:
+      title: "標題"
+      content: "內容"
+      date: "日期"
+      edit: "編輯"
+      show: "查看"
+      delete: "刪除"
+      delete_msg: "要刪除任務!你非常肯定嗎？"
+  tasks:
+    create:
+      notice: "新增任務成功"
+    update:
+      notice: "編輯任務成功"
+    destroy:
+      notice: "刪除成功"
+      not_success: "刪除失敗" 
