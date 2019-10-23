@@ -1,52 +1,56 @@
 class TasksController < ApplicationController
-    def index
-        @tasks = Task.all
-    end
+  before_action :find_task, :only => [:show, :edit, :update, :destroy]
 
-    def new
-        @task = Task.new
-    end
+  def index
+    @tasks = Task.all
+    #之後會改成分頁形式，先暫時用 all
+  end
 
-    def create
-        @task = Task.new(task_params)
-        if @task.save(validate: false) 
-            redirect_to tasks_path, notice: "新增任務成功"
-        else  
-            render :new
-        end
-    end
+  def new
+    @task = Task.new
+  end
 
-    def show
-        @task = Task.find_by(id: params[:id])
+  def create
+    @task = Task.new(task_params)
+    @task.user = User.first
+    #這裡暫時沒有建立User 
+    if @task.save 
+      redirect_to tasks_path, notice: "新增任務成功"
+    else  
+      render :new
     end
+  end
 
-    def edit
-        @task = Task.find_by(id: params[:id])
-    end
+  def show
+  end
 
-    def update
-        @task = Task.find_by(id: params[:id])
-        if @task.update(task_params)
-            redirect_to tasks_path, notice: "編輯成功"
-        else  
-            render :edit
-        end
-    end
+  def edit
+  end
 
-    def destroy
-        @task = Task.find_by(id: params[:id])
-        @task.destroy
-        redirect_to tasks_path, notice: "刪除成功"
+  def update
+    if @task.update(task_params)
+      redirect_to tasks_path, notice: "編輯成功"
+    else  
+      render :edit
     end
+  end
+
+  def destroy
+    @task.destroy if @task
+      redirect_to tasks_path, notice: "刪除成功"
+  end
 
 
 
     
-    private
+  private
     
-    def task_params
-        params.require(:task).permit(:username, :task, :content)
-    end
+  def task_params
+    params.require(:task).permit(:task, :content)
+  end
 
+  def find_task
+    @task = Task.find_by(id: params[:id])
+  end
 
 end
