@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    @tasks = Task.order(created_at: :desc)
     #之後會改成分頁形式，先暫時用 all
   end
 
