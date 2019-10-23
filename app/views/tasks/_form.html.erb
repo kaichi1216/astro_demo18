@@ -8,7 +8,7 @@
 
 
 <%= simple_form_for(task) do |f| %>
-  <%= f.input :task, label: "任務" %>
-  <%= f.input :content, as: :text, label: "內容" %>
-  <%= f.submit %>
+  <%= f.input :task, label: t('views.tasks.title') %>
+  <%= f.input :content, as: :text, label: t('views.tasks.content') %>
+  <%= f.button :submit, t('views.submit_btn') %>
 <% end %>
