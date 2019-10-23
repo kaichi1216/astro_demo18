@@ -1,0 +1,18 @@
+<%= link_to "返回任務列表", tasks_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>任務</td>
+      <td>內容</td>
+      <td>創建時間</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @task.task %></td>
+      <td><%= @task.content %></td>
+      <td><%= @task.created_at %></td>
+    </tr>
+  </tbody>
+</table>
