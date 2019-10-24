@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   private
     
   def task_params
-    params.require(:task).permit(:task, :content,:remenber_created_at)
+    params.require(:task).permit(:task, :content, :remenber_created_at)
   end
 
   def find_task
