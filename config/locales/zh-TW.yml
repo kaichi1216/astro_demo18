@@ -10,6 +10,7 @@ zh-TW:
       title: "標題"
       content: "內容"
       date: "日期"
+      deadline: "時間"
       edit: "編輯"
       show: "查看"
       delete: "刪除"
