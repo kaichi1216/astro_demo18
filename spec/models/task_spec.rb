@@ -17,4 +17,11 @@ RSpec.describe Task, type: :model do
        expect(task.content).to eq "eat steak"
     end
   end
+
+  describe "建立Task 任務內容不能是空白" do 
+    it "Task任務內容" do 
+      task = Task.create(content: "大家好")
+       expect(task.errors.full_messages).to eq ["Task 不能為空白"]
+    end
+  end
 end

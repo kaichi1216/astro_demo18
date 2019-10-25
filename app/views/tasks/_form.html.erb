@@ -1,14 +1,14 @@
 <% if @task.errors.present? %>
 <ul>
   <% @task.errors.each do |error, message| %>
-    <li><%= "#{error.capitalize} #{message} "%></li>
+    <li style="color:red"><%= "#{error.capitalize}欄位#{message} "%></li>
   <% end %>
 </ul>
 <% end %>
 
 
 <%= simple_form_for(task) do |f| %>
-  <%= f.input :task, label: t('views.tasks.title') %>
+  <%= f.input :task, label: t('views.tasks.title'), placeholder: "此欄位必填", :required => false %>
   <%= f.input :remenber_created_at, label: t('views.tasks.deadline') %>
   <%= f.input :content, as: :text, label: t('views.tasks.content') %>
   <%= f.button :submit, t('views.submit_btn') %>
