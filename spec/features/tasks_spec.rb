@@ -17,6 +17,9 @@ RSpec.feature "Tasks", type: :feature do
     expect(page).to have_content "eat"
     expect(page).to have_content "新增任務成功"
     expect(Task.first.task).to eq "eat"
+    expect(Task.first.remenber_created_at).to eq "2014-10-24 23:10:00.000000000 +0800"
+    expect(Task.first.content).to eq "eat steak"
+
   end
 
   #創建三個task
