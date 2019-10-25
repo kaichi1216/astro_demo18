@@ -16,6 +16,7 @@ RSpec.feature "Tasks", type: :feature do
     
     expect(page).to have_content "eat"
     expect(page).to have_content "新增任務成功"
+    expect(Task.first.task).to eq "eat"
   end
 
   #創建三個task
