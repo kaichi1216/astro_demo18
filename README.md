@@ -23,4 +23,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* Deploy on heroku
+* website url: https://kaichi18.herokuapp.com/tasks
