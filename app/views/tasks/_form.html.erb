@@ -10,6 +10,7 @@
 <%= simple_form_for(task) do |f| %>
   <%= f.input :task, label: t('views.tasks.title'), placeholder: "此欄位必填", :required => false %>
   <%= f.input :deadline, label: t('views.tasks.deadline') %>
+  <%= f.input :state, collection: [:processing, :solved] %>
   <%= f.input :content, as: :text, label: t('views.tasks.content') %>
   <%= f.button :submit, t('views.submit_btn') %>
 <% end %>

@@ -1,9 +1,10 @@
 class TasksController < ApplicationController
-  before_action :find_task, :only => [:show, :edit, :update, :destroy]
+  before_action :find_task, :only => [:show, :edit, :update, :destroy, :start, :done]
 
   def index
-    @tasks = Task.ordered_by_deadline
-    #之後會改成分頁形式
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true)
+    @tasks = params[:q] ? @q.result : @tasks = Task.ordered_by_deadline
   end
 
   def new
@@ -44,13 +45,22 @@ class TasksController < ApplicationController
       redirect_to tasks_path, notice: notice
   end
 
+  def start
+    @task.start! if @task.pending?
+    redirect_back(fallback_location: :root_path)
+  end
+
+  def done
+    @task.done! if @task.completed?
+    redirect_back(fallback_location: :root_path)
+  end
 
 
     
   private
     
   def task_params
-    params.require(:task).permit(:task, :content, :deadline)
+    params.require(:task).permit(:task, :content, :deadline, :state)
   end
 
   def find_task
