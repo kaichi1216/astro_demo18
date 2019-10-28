@@ -24,7 +24,7 @@ Things you may want to cover:
 * Deployment instructions
   Deploy on heroku
   # 步驟1
-  註冊 reroku 帳號
+  註冊 heroku 帳號
   # 步驟2
   安裝 heroku CLI [heroku CLI](https://devcenter.heroku.com/articles/heroku-cli/ "安裝頁面說明")
   # 步驟3
@@ -57,7 +57,7 @@ Things you may want to cover:
   如果專案有更新 執行
   ```
   git add .
-  git commit -m"更新名稱"
+  git commit -m "更新名稱"
   git push heroku master
   ```
   # 網站網址
