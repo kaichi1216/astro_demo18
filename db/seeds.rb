@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times {
-  Task.create(task: "吃飯飯",remenber_created_at: "20191026-18:00", content: "晚上吃飯飯")
+  Task.create(task: "吃飯飯", deadline: "20191026-18:00", content: "晚上吃飯飯")
 }

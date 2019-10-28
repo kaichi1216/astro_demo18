@@ -24,4 +24,5 @@ RSpec.describe Task, type: :model do
       expect(task.errors.full_messages).to eq ["Task 不能為空白"]
     end
   end
+
 end
