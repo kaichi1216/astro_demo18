@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times {
+  Task.create(task: "吃飯飯",remenber_created_at: "20191026-18:00", content: "晚上吃飯飯")
+}
