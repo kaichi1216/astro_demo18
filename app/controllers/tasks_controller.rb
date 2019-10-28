@@ -2,8 +2,8 @@ class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.order(remenber_created_at: :asc)
-    #之後會改成分頁形式，先暫時用 all
+    @tasks = Task.ordered_by_deadline
+    #之後會改成分頁形式
   end
 
   def new
@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   private
     
   def task_params
-    params.require(:task).permit(:task, :content, :remenber_created_at)
+    params.require(:task).permit(:task, :content, :deadline)
   end
 
   def find_task

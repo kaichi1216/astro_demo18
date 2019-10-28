@@ -10,7 +10,7 @@ zh-TW:
       title: "Title:"
       content: "Content:"
       date: "date"
-      deadline: "deadline:"
+      deadline: "Deadline:"
       edit: "Edit"
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
