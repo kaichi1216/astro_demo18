@@ -1,5 +1,6 @@
 zh-TW:
   views:
+    search: "search"
     edit_task: "Edit Task"
     new_task: "New Task"
     show_task: "Show Task"
@@ -7,6 +8,7 @@ zh-TW:
     home: "Home"
     submit_btn: "submit"
     tasks:
+      search_all: "search task or state"
       title: "Title:"
       content: "Content:"
       date: "date"

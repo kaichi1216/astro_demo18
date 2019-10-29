@@ -1,0 +1,6 @@
+<%= search_form_for(@q, url:search_tasks_path) do |f| %>
+  <%= f.label t('views.search') %>
+  <%= f.search_field :task_or_content_cont, placeholder: t('views.tasks.search_all') %>
+  <%= f.input :state_eq, as: :select,label: t('views.tasks.state'), collection: Task.states.keys.map {|state| [Task.states[state], t("views.tasks.state.#{state}")]}, label_method: :second, value_method: :first, :required => false %>
+  <%= f.submit %>
+<% end %>

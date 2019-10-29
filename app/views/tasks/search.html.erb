@@ -1,0 +1,27 @@
+<h1>搜尋結果</h1>
+<%= link_to t('views.home'), tasks_path %>
+<table>
+  <thead>
+    <tr>
+      <td><%=t('views.tasks.title')%></td>
+      <td><%=t('views.tasks.date')%></td>
+      <td><%=t('views.tasks.state')%></td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.task %></td>
+      <td><%= (task.deadline).strftime("%B %d, %Y %H:%M") %></td>
+      <td><%= task.state %></td>
+      <td>
+      <%= link_to t('views.tasks.edit'), edit_task_path(task) %>
+      <%= link_to t('views.tasks.show'), task_path(task) %>
+      <%= link_to t('views.tasks.delete'), task_path(task), method: "delete", data:{ confirm: t('views.tasks.delete_msg')} %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

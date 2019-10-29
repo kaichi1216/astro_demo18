@@ -1,5 +1,6 @@
 zh-TW:
   views:
+    search: "搜尋"
     edit_task: "編輯任務"
     new_task: "新增任務"
     show_task: "任務內容"
@@ -7,6 +8,7 @@ zh-TW:
     home: "首頁"
     submit_btn: "送出"
     tasks:
+      search_all: "可搜尋任務 狀態"
       title: "標題:"
       content: "內容:"
       date: "日期:"

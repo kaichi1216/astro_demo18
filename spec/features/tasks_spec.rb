@@ -45,7 +45,7 @@ RSpec.feature "Tasks", type: :feature do
     task2
     task3
 
-    visit edit_task_url(id: 5)
+    visit edit_task_url(task2.id)
     select 'processing', from: 'task_state'
     click_on "送出"
     #進到index頁面

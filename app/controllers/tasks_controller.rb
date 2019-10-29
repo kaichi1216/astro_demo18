@@ -2,9 +2,14 @@ class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy, :start, :done]
 
   def index
+    @tasks = Task.ordered_by_deadline
     @q = Task.ransack(params[:q])
-    @tasks = @q.result(distinct: true)
-    @tasks = params[:q] ? @q.result : @tasks = Task.ordered_by_deadline
+  end
+
+  def search
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true).ordered_by_deadline
+    @q.result
   end
 
   def new

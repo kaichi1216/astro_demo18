@@ -1,13 +1,8 @@
 <h1><%=t('views.tasks_topic')%></h1>
 
-<%= search_form_for(@q, url:root_path) do |f| %>
-  <%= f.label "搜尋" %>
-  <%= f.search_field :task_or_content_or_state_cont, placeholder: "可搜尋任務 狀態" %>
-  <%= f.submit %>
-<% end %>
+<%= render "search_bar"%>
 
 <%= link_to t('views.new_task'), new_task_path %>
-<%= link_to t('views.home'), tasks_path %>
 
 <table>
   <thead>

@@ -2,9 +2,10 @@ class Task < ApplicationRecord
   validates :task, presence: true
   belongs_to :user
   scope :ordered_by_deadline, -> { order(deadline: :asc) }
+  enum state: %i[pending processing solved]
   
   include AASM
-  aasm column: :state do
+  aasm column: :state, enum: true do
     state :pending, initial: true
     state :processing, :solved
 
