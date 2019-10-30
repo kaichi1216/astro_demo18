@@ -18,6 +18,11 @@ zh-TW:
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
       state: "state"
+      priority: "priority"
+    priority_lv:
+      low: "low"
+      middle: "middle"
+      high: "high"
   state:
     pending: "pending"
     processing: "processing"

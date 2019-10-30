@@ -5,17 +5,19 @@
   <thead>
     <tr>
       <td><%= t('views.tasks.title') %></td>
-      <td><%= t('views.tasks.content') %></td>
       <td><%= t('views.tasks.deadline') %></td>
+      <td><%= t('views.tasks.content') %></td>
       <td><%= t('views.tasks.state') %></td>
+      <td><%= t('views.tasks.priority') %></td>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><%= @task.task %></td>
+      <td><%= (@task.deadline).strftime("%B %d, %Y %H:%M") %></td>
       <td><%= @task.content %></td>
-      <td><%= @task.deadline %></td>
-      <td><%= @task.state %></td>
+      <td><%= task_state(@task.state) %></td>
+      <td><%= task_priority(@task.priority) %></td>
     </tr>
   </tbody>
 </table>

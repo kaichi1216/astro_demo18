@@ -10,7 +10,8 @@
 <%= simple_form_for(task) do |f| %>
   <%= f.input :task, label: t('views.tasks.title'), placeholder: "此欄位必填", :required => false %>
   <%= f.input :deadline, label: t('views.tasks.deadline') %>
-  <%= f.input :state, collection: [:processing, :solved] %>
+  <%= f.input :state, label: t('views.tasks.state'), collection: [:processing, :solved] %>
   <%= f.input :content, as: :text, label: t('views.tasks.content') %>
+  <%= f.input :priority, label: t('views.tasks.priority'), collection: [:low, :middle, :high] %>
   <%= f.button :submit, t('views.submit_btn') %>
 <% end %>
