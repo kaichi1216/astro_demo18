@@ -1,15 +1,15 @@
-<h1><%=t('views.tasks_topic')%></h1>
+<h1><%= t('views.tasks_topic') %></h1>
 
-<%= render "search_bar"%>
+<%= render "search_bar" %>
 
 <%= link_to t('views.new_task'), new_task_path %>
 
 <table>
   <thead>
     <tr>
-      <td><%=t('views.tasks.title')%></td>
-      <td><%=t('views.tasks.date')%></td>
-      <td><%=t('views.tasks.state')%></td>
+      <td><%= t('views.tasks.title') %></td>
+      <td><%= t('views.tasks.date') %></td>
+      <td><%= t('views.tasks.state') %></td>
     </tr>
   </thead>
   <tbody>
