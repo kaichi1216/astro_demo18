@@ -1,5 +1,7 @@
 zh-TW:
   views:
+    search: "搜尋"
+    searchresult: "搜尋結果"
     edit_task: "編輯任務"
     new_task: "新增任務"
     show_task: "任務內容"
@@ -7,6 +9,7 @@ zh-TW:
     home: "首頁"
     submit_btn: "送出"
     tasks:
+      search_all: "可搜尋任務 內容"
       title: "標題:"
       content: "內容:"
       date: "日期:"
@@ -15,6 +18,15 @@ zh-TW:
       show: "查看"
       delete: "刪除"
       delete_msg: "要刪除任務!你非常肯定嗎？"
+      state: "狀態"
+  state:
+    pending: "未處理"
+    processing: "處理中"
+    solved: "已完成"
+    start: "開始"
+    done: "完成"
+        
+        
   tasks:
     create:
       notice: "新增任務成功"

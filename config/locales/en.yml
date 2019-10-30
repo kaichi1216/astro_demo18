@@ -1,5 +1,7 @@
 zh-TW:
   views:
+    search: "search"
+    searchresult: "search_result"
     edit_task: "Edit Task"
     new_task: "New Task"
     show_task: "Show Task"
@@ -7,6 +9,7 @@ zh-TW:
     home: "Home"
     submit_btn: "submit"
     tasks:
+      search_all: "search task or content"
       title: "Title:"
       content: "Content:"
       date: "date"
@@ -14,6 +17,13 @@ zh-TW:
       edit: "Edit"
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
+      state: "state"
+  state:
+    pending: "pending"
+    processing: "processing"
+    solved: "solved"
+    start: "start"
+    done: "done"
   tasks:
     create:
       notice: "Create a new task!"

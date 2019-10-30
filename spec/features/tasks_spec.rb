@@ -33,13 +33,29 @@ RSpec.feature "Tasks", type: :feature do
     task4
 
     #進到index頁面
-
     visit tasks_path
 
     #第一筆資料為 task4 第二筆為 task2 確認是照任務時間排序
     expect(find('table tbody tr:nth-child(1) td:nth-child(1)')).to have_content("task title 3")
     expect(find('table tbody tr:nth-child(2) td:nth-child(1)')).to have_content("task title 1")
     expect(find('table tbody tr:nth-child(3) td:nth-child(1)')).to have_content("task title 2")
+  end
+
+  scenario "建立2個任務後 更改狀態" do
+    task2
+    task3
+
+    visit edit_task_url(task2.id)
+    select 'processing', from: 'task_state'
+    click_on "送出"
+    #進到index頁面
+    visit tasks_path
+
+    #第一筆資料的狀態修改後為 processing 第二筆資料建立時預設值是 pending
+    expect(task2.reload.state).to eq "processing"
+    expect(task3.state).to eq "pending"
+    expect(find('table tbody tr:nth-child(1) td:nth-child(3)')).to have_content("processing")
+    expect(find('table tbody tr:nth-child(2) td:nth-child(3)')).to have_content("pending")
   end
 
 

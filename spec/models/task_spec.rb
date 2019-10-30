@@ -25,4 +25,19 @@ RSpec.describe Task, type: :model do
     end
   end
 
+  let(:task) { create(:task, deadline: Time.now.yesterday) }
+
+  describe "建立Task 狀態預設為 pending" do 
+    it "Task任務預設" do 
+      expect(task.state).to eq "pending"
+    end
+  end
+  
+  describe "編輯Task 狀態改為 solved" do 
+    it "Task任務預設" do 
+      task.update(state: "solved")
+      expect(task.state).to eq "solved"
+    end
+  end
+
 end
