@@ -1,6 +1,6 @@
 <%= search_form_for(@q, url:search_tasks_path) do |f| %>
   <%= f.label t('views.search') %>
   <%= f.search_field :task_or_content_cont, placeholder: t('views.tasks.search_all') %>
-  <%= f.input :state_eq, as: :select,label: t('views.tasks.state'), collection: [['pending', 0], ['processing', 1], ['solved', 2]], label_method: :first, value_method: :second, :required => false %>
+  <%= f.input :state_eq, as: :select, label: t('views.tasks.state'), collection: [[t('state.pending'), 0], [t('state.processing'), 1], [t('state.solved'), 2]], label_method: :first, value_method: :second, :required => false %>
   <%= f.submit %>
 <% end %>
