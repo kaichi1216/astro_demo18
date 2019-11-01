@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
+  around do |ex|
+    I18n.locale = 'zh-TW'
+    ex.run
+  end
   scenario "建立新的任務" do
     visit tasks_path
     click_on "新增任務"
@@ -59,13 +63,13 @@ RSpec.feature "Tasks", type: :feature do
     expect(find('table tbody tr:nth-child(2) td:nth-child(3)')).to have_content("未處理")
   end
 
-  scenario "建立2個任務後 可以點擊狀態 任務會以 低 中 高 做排序" do
+  scenario "建立2個任務後 可以點擊等級 任務會以 低 中 高 做排序" do
     task2
     task3
 
     visit tasks_path
     click_on "等級"
-    
+    puts task2.priority
 
     #第一筆資料的等級為低 第二筆資料等級為中
     expect(find('table tbody tr:nth-child(1) td:nth-child(4)')).to have_content("中")
