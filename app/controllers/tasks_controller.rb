@@ -1,10 +1,10 @@
 class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy, :start, :done]
   before_action :search_params, :only => [:index, :search]
-  
+
   def index
     @tasks = @q.result
-    @tasks = Task.ordered(sort_params[params[:sort]])
+    @tasks = Task.ordered(sort_params)
   end
 
   def search
@@ -60,12 +60,11 @@ class TasksController < ApplicationController
   end
 
   def sort_params
-    sort_params ={"state_asc" => "state ASC",
-                  "state_desc" => "state DESC",
-                  "deadline_desc" => "deadline DESC",
-                  "deadline_asc" => "deadline ASC",
-                  "priority_asc" => "priority ASC",
-                  "priority_desc" => "priority DESC"}
+    field, order = params[:sort].to_s.split('_')
+    return unless field.in?(%w[state deadline priority])
+    return unless order.in?(%w[asc desc])
+  
+    "#{field} #{order.upcase}"
   end
 
 
