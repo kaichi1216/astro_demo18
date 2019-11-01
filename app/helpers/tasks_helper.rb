@@ -14,11 +14,11 @@ module TasksHelper
   def task_priority(priority)
     case priority
     when "low"
-      t('helpers.priority_lv.low')
+      t('views.priority_lv.low')
     when "middle"
-      t('helpers.priority_lv.middle')
+      t('views.priority_lv.middle')
     when "high"
-      t('helpers.priority_lv.high')
+      t('views.priority_lv.high')
     end
   end
 

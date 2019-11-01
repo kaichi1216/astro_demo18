@@ -69,7 +69,6 @@ RSpec.feature "Tasks", type: :feature do
 
     visit tasks_path
     click_on "等級"
-    puts task2.priority
 
     #第一筆資料的等級為低 第二筆資料等級為中
     expect(find('table tbody tr:nth-child(1) td:nth-child(4)')).to have_content("中")
