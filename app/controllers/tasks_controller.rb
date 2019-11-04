@@ -3,12 +3,12 @@ class TasksController < ApplicationController
   before_action :search_params, :only => [:index, :search]
 
   def index
-    @tasks = @q.result.page(params[:page]).per(10)
-    @tasks = Task.ordered(sort_params).page(params[:page]).per(10)
+    @tasks = @q.result
+    @tasks = Task.ordered(sort_params)
   end
 
   def search
-    @tasks = @q.result(distinct: true).ordered_by_deadline.page(params[:page]).per(10)
+    @tasks = @q.result(distinct: true).ordered_by_deadline
   end
 
   def new
