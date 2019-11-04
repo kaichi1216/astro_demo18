@@ -51,6 +51,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
+    bootstrap4-kaminari-views (1.0.1)
+      kaminari (>= 0.13)
+      rails (>= 3.1)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -107,6 +110,18 @@ GEM
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
     json (2.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.1.5)
@@ -270,6 +285,7 @@ PLATFORMS
 DEPENDENCIES
   aasm (~> 5.0, >= 5.0.6)
   bootsnap (>= 1.1.0)
+  bootstrap4-kaminari-views
   byebug
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
@@ -277,6 +293,7 @@ DEPENDENCIES
   factory_bot_rails (~> 5.1, >= 5.1.1)
   hirb-unicode (~> 0.0.5)
   jbuilder (~> 2.5)
+  kaminari (~> 1.1, >= 1.1.1)
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.1, >= 1.1.4)
   puma (~> 3.11)
