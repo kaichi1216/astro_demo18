@@ -22,37 +22,21 @@ module TasksHelper
     end
   end
 
-  def sort_link
-    field, sort = params[:sort].to_s.split('_')
-    return unless field.in?(%w[state deadline priority])
-    return unless sort.in?(%w[asc desc])
-    
-    link_order = sort === 'desc' ? 'asc' : 'desc'
+    # 使用方法： sort_link('state'), sort_link('deadline'), sort_link('priority')
+  def sort_link(field, default_sort = 'desc')
+    # 判斷是否是這三個欄位
+    whitelist_field = %w[state deadline priority]
+    return unless field.in?(whitelist_field)
+
+    # 將params[:sort]分割成欄位、排序 
+    params_field, params_sort = params[:sort].to_s.split('_')
+    # 若params的field和要顯示field是相同的話，表示目前依照此field做排序，則顯示目前排序的相反
+    if (field == params_field) && params_sort.in?(%w[asc desc])
+      link_order = params_sort === 'desc' ? 'asc' : 'desc'
+  # 表示沒照此field做排序，給個預設的排序
+    else
+      link_order = default_sort
+    end
     link_to t("views.tasks.#{field}"), tasks_path(sort: "#{field}_#{link_order}")
-  end
-
-  def state_sort
-    if request.params['sort'] == 'state_desc'
-      sort_link
-    else 
-      link_to t('views.tasks.state'), tasks_path(sort: 'state_desc')
-    end
-  end
-
-
-  def deadline_sort
-    if request.params['sort'] == 'deadline_desc'
-      sort_link
-    else 
-      link_to t('views.tasks.deadline'), tasks_path(sort: 'deadline_desc')
-    end
-  end
-
-  def priority_sort
-    if request.params['sort'] == 'priority_desc'
-      sort_link
-    else 
-      link_to t('views.tasks.priority'), tasks_path(sort: 'priority_desc')
-    end
   end
 end

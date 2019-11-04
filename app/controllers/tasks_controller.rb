@@ -3,12 +3,12 @@ class TasksController < ApplicationController
   before_action :search_params, :only => [:index, :search]
 
   def index
-    @tasks = @q.result
-    @tasks = Task.ordered(sort_params)
+    @tasks = @q.result.page(params[:page]).per(10)
+    @tasks = Task.ordered(sort_params).page(params[:page]).per(10)
   end
 
   def search
-    @tasks = @q.result(distinct: true).ordered_by_deadline
+    @tasks = @q.result(distinct: true).ordered_by_deadline.page(params[:page]).per(10)
   end
 
   def new
@@ -59,15 +59,6 @@ class TasksController < ApplicationController
     redirect_back(fallback_location: :root_path)
   end
 
-  def sort_params
-    field, order = params[:sort].to_s.split('_')
-    return unless field.in?(%w[state deadline priority])
-    return unless order.in?(%w[asc desc])
-  
-    "#{field} #{order.upcase}"
-  end
-
-
     
   private
     
@@ -81,6 +72,14 @@ class TasksController < ApplicationController
 
   def search_params
     @q = Task.ransack(params[:q])
+  end
+
+  def sort_params
+    field, order = params[:sort].to_s.split('_')
+    return unless field.in?(%w[state deadline priority])
+    return unless order.in?(%w[asc desc])
+  
+    "#{field} #{order.upcase}"
   end
 
 end

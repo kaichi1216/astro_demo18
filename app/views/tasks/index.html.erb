@@ -8,9 +8,9 @@
   <thead>
     <tr>
       <td><%= t('views.tasks.title') %></td>
-      <td><%= deadline_sort %></td>
-      <td><%= state_sort %></td>
-      <td><%= priority_sort %></td>
+      <td><%= sort_link('deadline') %></td>
+      <td><%= sort_link('state') %></td>
+      <td><%= sort_link('priority') %></td>
     </tr>
   </thead>
   <tbody>
@@ -29,3 +29,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @tasks %>
