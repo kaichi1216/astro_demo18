@@ -3,8 +3,7 @@ class TasksController < ApplicationController
   before_action :search_params, :only => [:index, :search]
 
   def index
-    @tasks = @q.result
-    @tasks = Task.ordered(sort_params)
+    @tasks = @q.result.ordered(sort_params)
   end
 
   def search
