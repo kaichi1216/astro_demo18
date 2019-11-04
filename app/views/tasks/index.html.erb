@@ -8,8 +8,9 @@
   <thead>
     <tr>
       <td><%= t('views.tasks.title') %></td>
-      <td><%= t('views.tasks.date') %></td>
-      <td><%= t('views.tasks.state') %></td>
+      <td><%= sort_link('deadline') %></td>
+      <td><%= sort_link('state') %></td>
+      <td><%= sort_link('priority') %></td>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +18,8 @@
     <tr>
       <td><%= task.task %></td>
       <td><%= (task.deadline).strftime("%B %d, %Y %H:%M") %></td>
-      <td><%= task.state %></td>
+      <td><%= task_state(task.state) %></td>
+      <td><%= task_priority(task.priority) %></td>
       <td>
         <%= link_to t('views.tasks.edit'), edit_task_path(task) %>
         <%= link_to t('views.tasks.show'), task_path(task) %>
@@ -27,3 +29,4 @@
     <% end %>
   </tbody>
 </table>
+

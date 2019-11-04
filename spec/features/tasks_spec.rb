@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
+  around do |ex|
+    I18n.locale = 'zh-TW'
+    ex.run
+  end
   scenario "建立新的任務" do
     visit tasks_path
     click_on "新增任務"
@@ -23,14 +27,15 @@ RSpec.feature "Tasks", type: :feature do
   end
 
   #創建三個task
-  let(:task2) { create(:task, deadline: Time.now.yesterday) }
-  let(:task3) { create(:task, deadline: Time.now) }
-  let(:task4) { create(:task, deadline: "2019-10-26 18:48:15 +0800") }
+  let(:task2) { create(:task, deadline: Time.now.yesterday, priority: "low") }
+  let(:task3) { create(:task, deadline: Time.now, priority: "middle") }
+  let(:task4) { create(:task, deadline: "2019-10-26 18:48:15 +0800", priority: "high") }
 
   scenario "建立3個任務後 要依照任務結束時間去排序" do
     task2
     task3
     task4
+    
 
     #進到index頁面
     visit tasks_path
@@ -54,8 +59,20 @@ RSpec.feature "Tasks", type: :feature do
     #第一筆資料的狀態修改後為 processing 第二筆資料建立時預設值是 pending
     expect(task2.reload.state).to eq "processing"
     expect(task3.state).to eq "pending"
-    expect(find('table tbody tr:nth-child(1) td:nth-child(3)')).to have_content("processing")
-    expect(find('table tbody tr:nth-child(2) td:nth-child(3)')).to have_content("pending")
+    expect(find('table tbody tr:nth-child(1) td:nth-child(3)')).to have_content("處理中")
+    expect(find('table tbody tr:nth-child(2) td:nth-child(3)')).to have_content("未處理")
+  end
+
+  scenario "建立2個任務後 可以點擊等級 任務會以 低 中 高 做排序" do
+    task2
+    task3
+
+    visit tasks_path
+    click_on "等級"
+
+    #第一筆資料的等級為低 第二筆資料等級為中
+    expect(find('table tbody tr:nth-child(1) td:nth-child(4)')).to have_content("中")
+    expect(find('table tbody tr:nth-child(2) td:nth-child(4)')).to have_content("低")
   end
 
 

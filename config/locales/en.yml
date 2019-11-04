@@ -6,6 +6,7 @@ zh-TW:
     new_task: "New Task"
     show_task: "Show Task"
     tasks_topic: "Test18 manager"
+    placeholder: "its not be blank"
     home: "Home"
     submit_btn: "submit"
     tasks:
@@ -18,6 +19,26 @@ zh-TW:
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
       state: "state"
+      priority: "priority"
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
+    priority_lv:
+      low: "low"
+      middle: "middle"
+      high: "high"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+      more_pages:
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
   state:
     pending: "pending"
     processing: "processing"
@@ -32,3 +53,4 @@ zh-TW:
     destroy:
       notice: "Task Removed!"
       not_success: "Task not Removed!"
+  

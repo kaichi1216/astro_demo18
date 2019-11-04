@@ -1,8 +1,9 @@
 class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy, :start, :done]
   before_action :search_params, :only => [:index, :search]
+
   def index
-    @tasks = @q.result.ordered_by_deadline
+    @tasks = @q.result.ordered(sort_params)
   end
 
   def search
@@ -57,12 +58,11 @@ class TasksController < ApplicationController
     redirect_back(fallback_location: :root_path)
   end
 
-
     
   private
     
   def task_params
-    params.require(:task).permit(:task, :content, :deadline, :state)
+    params.require(:task).permit(:task, :content, :deadline, :state, :priority)
   end
 
   def find_task
@@ -71,6 +71,14 @@ class TasksController < ApplicationController
 
   def search_params
     @q = Task.ransack(params[:q])
+  end
+
+  def sort_params
+    field, order = params[:sort].to_s.split('_')
+    return unless field.in?(%w[state deadline priority])
+    return unless order.in?(%w[asc desc])
+  
+    "#{field} #{order.upcase}"
   end
 
 end
