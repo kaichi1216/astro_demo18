@@ -2,32 +2,33 @@
 
 <%= render "search_bar" %>
 
-<%= link_to t('views.new_task'), new_task_path %>
+<%= link_to t('views.new_task'), new_task_path, class:"btn btn-primary btn-lg btn-block" %>
 
-<table>
-  <thead>
+<table class="table table-hover">
+  <thead class="thead-dark">
     <tr>
-      <td><%= t('views.tasks.title') %></td>
-      <td><%= sort_link('deadline') %></td>
-      <td><%= sort_link('state') %></td>
-      <td><%= sort_link('priority') %></td>
+      <td scope="col"><%= t('views.tasks.title') %></td>
+      <td scope="col"><%= sort_link('deadline') %></td>
+      <td scope="col"><%= sort_link('state') %></td>
+      <td scope="col"><%= sort_link('priority') %></td>
     </tr>
   </thead>
   <tbody>
     <% @tasks.each do |task| %>
     <tr>
-      <td><%= task.task %></td>
-      <td><%= (task.deadline).strftime("%B %d, %Y %H:%M") %></td>
-      <td><%= task_state(task.state) %></td>
-      <td><%= task_priority(task.priority) %></td>
-      <td>
-        <%= link_to t('views.tasks.edit'), edit_task_path(task) %>
-        <%= link_to t('views.tasks.show'), task_path(task) %>
-        <%= link_to t('views.tasks.delete'), task_path(task), method: "delete", data:{ confirm: t('views.tasks.delete_msg')} %>
+      <td scope="row"><%= task.task %></td>
+      <td scope="row"><%= (task.deadline).strftime("%B %d, %Y %H:%M") %></td>
+      <td scope="row"><%= task_state(task.state) %></td>
+      <td scope="row"><%= task_priority(task.priority) %></td>
+      <td scope="row">
+        <%= link_to t('views.tasks.edit'), edit_task_path(task), class:"btn btn-outline-warning" %>
+        <%= link_to t('views.tasks.show'), task_path(task), class:"btn btn-outline-primary" %>
+        <%= link_to t('views.tasks.delete'), task_path(task), method: "delete", data:{ confirm: t('views.tasks.delete_msg')}, class:"btn btn-outline-danger" %>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= paginate @tasks %>
+<div class="d-flex justify-content-center mt -4">
+<%= paginate @tasks, :theme => 'twitter-bootstrap-4' %>
+</div>

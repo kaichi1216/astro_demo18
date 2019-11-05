@@ -43,6 +43,9 @@ gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'ransack', '~> 2.3'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'bootstrap4-kaminari-views'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem 'bootstrap-kaminari-views', '~> 0.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

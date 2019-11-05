@@ -1,23 +1,26 @@
 <h1><%=t('views.show_task')%></h1>
-<%= link_to t('views.home'), tasks_path %>
 
-<table>
-  <thead>
+<table class="table table-hover">
+  <thead class="thead-dark">
     <tr>
-      <td><%= t('views.tasks.title') %></td>
-      <td><%= t('views.tasks.deadline') %></td>
-      <td><%= t('views.tasks.content') %></td>
-      <td><%= t('views.tasks.state') %></td>
-      <td><%= t('views.tasks.priority') %></td>
+      <td scope="col"><%= t('views.tasks.title') %></td>
+      <td scope="col"><%= t('views.tasks.deadline') %></td>
+      <td scope="col"><%= t('views.tasks.content') %></td>
+      <td scope="col"><%= t('views.tasks.state') %></td>
+      <td scope="col"><%= t('views.tasks.priority') %></td>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><%= @task.task %></td>
-      <td><%= (@task.deadline).strftime("%B %d, %Y %H:%M") %></td>
-      <td><%= @task.content %></td>
-      <td><%= task_state(@task.state) %></td>
-      <td><%= task_priority(@task.priority) %></td>
+      <td scope="row"><%= @task.task %></td>
+      <td scope="row"><%= (@task.deadline).strftime("%B %d, %Y %H:%M") %></td>
+      <td scope="row"><%= @task.content %></td>
+      <td scope="row"><%= task_state(@task.state) %></td>
+      <td scope="row"><%= task_priority(@task.priority) %></td>
     </tr>
   </tbody>
 </table>
+
+<div>
+  <%= link_to t('views.home'), tasks_path, class:"btn btn-primary btn-lg btn-block" %>
+</div>
