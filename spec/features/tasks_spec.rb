@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
-  around do |ex|
-    I18n.locale = 'zh-TW'
-    ex.run
-  end
   scenario "建立新的任務" do
     visit tasks_path
     click_on "新增任務"

@@ -6,6 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times {
-  Task.create(task: "吃飯飯", deadline: "20191026-18:00", content: "晚上吃飯飯")
-}
+# 10.times {
+#   puts "start"
+#   Task.create(task: "吃飯飯", deadline: "20191026-18:00", content: "晚上吃飯飯", priority: 'low')
+#   puts "end"
+# }
+puts "Generating 10 Task..."
+10.times do |i|
+  Task.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,
+                   deadline: Time.now,
+                   state: ["pending", "processing", "solved"].sample,
+                   priority: ['low', 'middle', 'high'].sample)
+end
+puts "Done!"
