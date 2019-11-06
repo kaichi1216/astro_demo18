@@ -31,6 +31,14 @@ zh-TW:
       low: "低"
       middle: "中"
       high: "高"
+    user:
+      username: "帳號"
+      email: "信箱"
+      password: "密碼"
+      sign_up: "註冊"
+      create: "註冊完成"
+      update: "更新完成"
+      destroy: "刪除完成"
   helpers:
     page_entries_info:
       one_page:

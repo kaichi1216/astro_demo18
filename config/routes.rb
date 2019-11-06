@@ -6,5 +6,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
+  get '/signup', to: 'user#new'
+
   root "tasks#index"
 end

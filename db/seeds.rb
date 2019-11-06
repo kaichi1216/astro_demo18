@@ -19,3 +19,6 @@ puts "Generating 10 Task..."
                    priority: ['low', 'middle', 'high'].sample)
 end
 puts "Done!"
+
+puts "建立人造人1號"
+User.create(username: "人造人17號", email: "robot17@gmail.com", password: 123456)

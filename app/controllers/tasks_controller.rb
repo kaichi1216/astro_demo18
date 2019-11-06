@@ -16,8 +16,6 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
-    @task.user = User.first
-    #這裡暫時沒有建立User 
     if @task.save 
       redirect_to tasks_path, notice: t('.notice')
     else  
