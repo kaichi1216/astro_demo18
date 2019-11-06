@@ -6,12 +6,23 @@
 </ul>
 <% end %>
 
-
+<form>
 <%= simple_form_for(task) do |f| %>
-  <%= f.input :task, label: t('views.tasks.title'), placeholder: t('views.placeholder'), :required => false %>
-  <%= f.input :deadline, label: t('views.tasks.deadline') %>
-  <%= f.input :state, label: t('views.tasks.state'), collection: [:processing, :solved] %>
-  <%= f.input :content, as: :text, label: t('views.tasks.content') %>
-  <%= f.input :priority, label: t('views.tasks.priority'), collection: [:low, :middle, :high] %>
-  <%= f.button :submit, t('views.submit_btn') %>
+  <div class="form-group">
+  <%= f.input :task, label: t('views.tasks.title'), placeholder: t('views.placeholder'), :required => false, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  <%= f.input :deadline, label: t('views.tasks.deadline'), class:"form-control" %>
+  </div>
+  <div class="form-group">
+  <%= f.input :state, label: t('views.tasks.state'), collection: [:processing, :solved], class:"form-control"  %>
+  </div>
+  <div class="form-group">
+  <%= f.input :content, as: :text, label: t('views.tasks.content'), class:"form-control", rows:"3" %>
+  </div>
+  <div class="form-group">
+  <%= f.input :priority, label: t('views.tasks.priority'), collection: [:low, :middle, :high], class:"form-control" %>
+  </div>
+  <%= f.button :submit, t('views.submit_btn'), class: 'btn btn-success btn-lg' %>
 <% end %>
+</form>
