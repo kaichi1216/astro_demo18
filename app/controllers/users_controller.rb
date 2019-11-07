@@ -16,18 +16,19 @@ class UsersController < ApplicationController
     end
   end
 
+  #尚未實作
   def show
 
   end
-
+  #尚未實作
   def edit
 
   end
-  
+  #尚未實作
   def update
 
   end
-
+  #尚未實作
   def destroy
 
   end

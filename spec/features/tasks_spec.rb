@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.feature "Tasks", type: :feature do
+  #建立使用者
+  let(:user) { create(:user, username: "人造人17號") }
   scenario "建立新的任務" do
     visit tasks_path
     click_on "新增任務"
