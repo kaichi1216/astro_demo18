@@ -1,13 +1,15 @@
 class TasksController < ApplicationController
   before_action :find_task, :only => [:show, :edit, :update, :destroy, :start, :done]
   before_action :search_params, :only => [:index, :search]
+  before_action :authenticate_user
 
   def index
-    @tasks = @q.result.ordered(sort_params).page(params[:page]).per(10)
+    # @tasks = @q.result.ordered(sort_params).page(params[:page]).per(10)
+    @tasks = @q.result.ordered(sort_params).where(user: current_user.id).page(params[:page]).per(10)
   end
 
   def search
-    @tasks = @q.result(distinct: true).ordered_by_deadline.page(params[:page]).per(10)
+    @tasks = @q.result(distinct: true).where(user: current_user.id).ordered_by_deadline.page(params[:page]).per(10)
   end
 
   def new
@@ -16,6 +18,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    @task.user = current_user
     if @task.save 
       redirect_to tasks_path, notice: t('.notice')
     else  

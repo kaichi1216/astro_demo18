@@ -6,6 +6,7 @@ zh-TW:
     new_task: "新增任務"
     show_task: "任務內容"
     tasks_topic: "Test18 任務列表"
+    user_signin: "登入會員"
     placeholder: "此欄位必填"
     home: "首頁"
     submit_btn: "送出"
@@ -15,6 +16,7 @@ zh-TW:
       content: "內容"
       date: "日期"
       deadline: "任務時間"
+      username: "執行任務選手"
       edit: "編輯"
       show: "查看"
       delete: "刪除"
@@ -62,3 +64,20 @@ zh-TW:
     destroy:
       notice: "刪除成功"
       not_success: "刪除失敗" 
+  user:
+    login: "登入"
+    signup: "註冊"
+    logout: "登出"
+    edit: "編輯"
+    edit_user: "編輯個人資料"
+    profile: "個人資訊"
+    newuser: "要註冊嗎"
+    signup_t: "註冊成功"
+    signup_f: "註冊失敗"
+    edit_t: "編輯成功"
+    edit_f: "編輯失敗"
+    
+  session:
+    success: "登入成功"
+    unsuccess: "登入失敗"
+    signout: "登出成功"

@@ -4,6 +4,7 @@
   <thead class="thead-dark">
     <tr>
       <td scope="col"><%= t('views.tasks.title') %></td>
+      <td scope="col"><%= t('views.tasks.username') %></td>
       <td scope="col"><%= t('views.tasks.deadline') %></td>
       <td scope="col"><%= t('views.tasks.content') %></td>
       <td scope="col"><%= t('views.tasks.state') %></td>
@@ -13,6 +14,7 @@
   <tbody>
     <tr>
       <td scope="row"><%= @task.task %></td>
+      <td scope="row"><%= @task.user.username %></td>
       <td scope="row"><%= (@task.deadline).strftime("%B %d, %Y %H:%M") %></td>
       <td scope="row"><%= @task.content %></td>
       <td scope="row"><%= task_state(@task.state) %></td>

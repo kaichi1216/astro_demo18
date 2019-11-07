@@ -18,8 +18,6 @@ RSpec.describe Task, type: :model do
     end
   end
 
-  let(:user) { create(:user, username: "人造人17號") }
-
   describe "建立Task 任務內容不能是空白" do 
     it "Task任務內容" do 
       task = Task.new(content: "大家好")

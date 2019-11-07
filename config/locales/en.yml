@@ -6,6 +6,7 @@ zh-TW:
     new_task: "New Task"
     show_task: "Show Task"
     tasks_topic: "Test18 manager"
+    user_signin: "user_signin"
     placeholder: "its not be blank"
     home: "Home"
     submit_btn: "submit"
@@ -15,6 +16,7 @@ zh-TW:
       content: "Content"
       date: "date"
       deadline: "Deadline"
+      username: "username"
       edit: "Edit"
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
@@ -61,4 +63,21 @@ zh-TW:
     destroy:
       notice: "Task Removed!"
       not_success: "Task not Removed!"
+  user:
+    login: "login"
+    signup: "signup"
+    logout: "logout"
+    edit: "edit"
+    edit_user: "edit_user"
+    profile: "profile"
+    newuser: "newuser"
+    signup_t: "signup success"
+    signup_f: "signup false"
+    edit_t: "edit success"
+    edit_f: "edit false"
+    
+  session:
+    success: "sign in success"
+    unsuccess: "sign in false"
+    signout: "sign out success"
   
