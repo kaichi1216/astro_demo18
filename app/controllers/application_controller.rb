@@ -1,9 +1,7 @@
 class ApplicationController < ActionController::Base
-  include SessionsHelper
+  include Sessions
 
   def authenticate_user
-    unless current_user
-      return redirect_to login_path, notice: "還沒登入喔"
-    end
+    redirect_to login_path, notice: t('views.not_login') unless current_user
   end
 end

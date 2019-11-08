@@ -8,6 +8,7 @@ zh-TW:
     tasks_topic: "Test18 任務列表"
     user_signin: "登入會員"
     placeholder: "此欄位必填"
+    not_login: "還沒登入喔"
     home: "首頁"
     submit_btn: "送出"
     tasks:

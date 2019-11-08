@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user, only: %i[show edit update]
   before_action :find_user, :only => [:show, :edit, :update]
+  before_action :check_user, :only => [:edit, :update]
   def new
     @user = User.new
   end
@@ -20,17 +21,15 @@ class UsersController < ApplicationController
   end
   
   def edit
-    unless @user
-      redirect_to root_path
-    end
   end
   
   def update
-    unless @user
-      redirect_to root_path
+    update_params = {}
+    user_params.each do |key, value|
+      update_params[key] = value unless value.blank?
     end
-
-    if @user.update(user_params)
+    
+    if @user.update(update_params)
       redirect_to user_path(@user), notice: t('user.edit_t')
     else  
       render :edit, notice: t('user.edit_f')
@@ -49,5 +48,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find_by(id: params[:id])
+  end
+
+  def check_user
+    redirect_to root_path unless @user
   end
 end

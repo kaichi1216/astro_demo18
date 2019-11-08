@@ -18,10 +18,9 @@ puts "以建立"
 
 puts "Generating 10 Task..."
 10.times do |i|
-  Task.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,
+  user1.tasks.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,
                     deadline: Time.now,
                     state: ["pending", "processing", "solved"].sample,
                     priority: ['low', 'middle', 'high'].sample)
 end
-user1.tasks = Task.all
 puts "Done!"

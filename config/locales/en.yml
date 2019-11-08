@@ -8,6 +8,7 @@ zh-TW:
     tasks_topic: "Test18 manager"
     user_signin: "user_signin"
     placeholder: "its not be blank"
+    not_login: "not_login"
     home: "Home"
     submit_btn: "submit"
     tasks:

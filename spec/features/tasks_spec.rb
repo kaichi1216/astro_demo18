@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.feature "Tasks", type: :feature do
   #建立使用者
   let(:user) { create(:user, username: "人造人17號", email: 'robot17@gmail.com', password: '123456') }
-  let(:task2) { create(:task, deadline: Time.now.yesterday, priority: "low") }
-  let(:task3) { create(:task, deadline: Time.now.yesterday, priority: "middle") }
+  let(:task2) { create(:task, user: user, deadline: Time.now.yesterday, priority: "low") }
+  let(:task3) { create(:task, user: user, deadline: Time.now, priority: "middle") }
   before {user}
   scenario "建立新的任務" do
     visit login_path
