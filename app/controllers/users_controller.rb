@@ -51,7 +51,7 @@ class UsersController < ApplicationController
   end
 
   def filter_params
-    user_params.select { |k, v| !v.blank?}
+    user_params.select { |k, v| !v.blank? }
   end
 
 end
