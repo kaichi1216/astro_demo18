@@ -1,6 +1,6 @@
 class Task < ApplicationRecord
-  validates :task, presence: true
   belongs_to :user
+  validates :task, presence: true
   scope :ordered_by_deadline, -> { order(deadline: :asc) }
   enum state: %i[pending processing solved]
   enum priority: %i[low middle high]

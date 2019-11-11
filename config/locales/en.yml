@@ -6,7 +6,9 @@ zh-TW:
     new_task: "New Task"
     show_task: "Show Task"
     tasks_topic: "Test18 manager"
+    user_signin: "user_signin"
     placeholder: "its not be blank"
+    not_login: "not_login"
     home: "Home"
     submit_btn: "submit"
     tasks:
@@ -15,6 +17,7 @@ zh-TW:
       content: "Content"
       date: "date"
       deadline: "Deadline"
+      username: "username"
       edit: "Edit"
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
@@ -30,6 +33,14 @@ zh-TW:
       low: "low"
       middle: "middle"
       high: "high"
+    user:
+      username: "username"
+      email: "email"
+      password: "password"
+      sign_up: "sign_up"
+      create: "sign_up done"
+      update: "update done"
+      destroy: "destroy done"
   helpers:
     page_entries_info:
       one_page:
@@ -53,4 +64,21 @@ zh-TW:
     destroy:
       notice: "Task Removed!"
       not_success: "Task not Removed!"
+  user:
+    login: "login"
+    signup: "signup"
+    logout: "logout"
+    edit: "edit"
+    edit_user: "edit_user"
+    profile: "profile"
+    newuser: "newuser"
+    signup_t: "signup success"
+    signup_f: "signup false"
+    edit_t: "edit success"
+    edit_f: "edit false"
+    
+  session:
+    success: "sign in success"
+    unsuccess: "sign in false"
+    signout: "sign out success"
   

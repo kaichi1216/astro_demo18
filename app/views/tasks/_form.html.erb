@@ -6,7 +6,6 @@
 </ul>
 <% end %>
 
-<form>
 <%= simple_form_for(task) do |f| %>
   <div class="form-group">
   <%= f.input :task, label: t('views.tasks.title'), placeholder: t('views.placeholder'), :required => false, class: "form-control" %>
@@ -25,4 +24,3 @@
   </div>
   <%= f.button :submit, t('views.submit_btn'), class: 'btn btn-success btn-lg' %>
 <% end %>
-</form>
