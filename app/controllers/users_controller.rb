@@ -35,12 +35,6 @@ class UsersController < ApplicationController
 
   end
 
-  def filter_params
-    update_params = {}
-    user_params.each do |key, value|
-      update_params[key] = value unless value.blank?
-    end
-  end
 
   private
 
@@ -55,4 +49,11 @@ class UsersController < ApplicationController
   def check_user
     redirect_to root_path unless @user
   end
+
+  def filter_params
+    user_params.each do |key, value|
+      user_params[key] = value unless value.blank?
+    end
+  end
+
 end
