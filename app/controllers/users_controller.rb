@@ -51,9 +51,7 @@ class UsersController < ApplicationController
   end
 
   def filter_params
-    user_params.each do |key, value|
-      user_params[key] = value unless value.blank?
-    end
+    user_params.select { |k, v| !v.blank?}
   end
 
 end
