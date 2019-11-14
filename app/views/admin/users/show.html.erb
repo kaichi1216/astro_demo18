@@ -1,0 +1,49 @@
+<div id="admin_user_name">
+<h1><%= @user.username %></h1>
+</div>
+<div class="row justify-content-md-center" id="admin_user_showpage" >
+  <div class="col-4">
+    <div class="card mt-5">
+      <div class="card-header text-center">
+        <%= t('user.profile') %>
+      </div>
+      <div class="card-body">
+        <p><%= t('views.user.username') %>: <%= @user.username %></p>          
+        <p><%= t('views.user.email') %>: <%= @user.email %></p>          
+      </div>
+    </div>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <td scope="col"><%= t('views.tasks.title') %></td>
+      <td scope="col"><%= t('views.tasks.username') %></td>
+      <td scope="col"><%= t('views.tasks.date') %></td>
+      <td scope="col"><%= t('views.tasks.state') %></td>
+      <td scope="col"><%= t('views.tasks.priority') %></td>
+    </tr>
+  </thead>
+  <tbody>
+  <% @tasks.each do |task| %>
+    <tr>
+      <td scope="row"><%= task.task %></td>
+      <td scope="row"><%= task.user.username %></td>
+      <td scope="row"><%= (task.deadline).strftime("%B %d, %Y %H:%M") %></td>
+      <td scope="row"><%= task_state(task.state) %></td>
+      <td scope="row"><%= task_priority(task.priority) %></td>
+      <td scope="row">
+      <%= link_to t('views.tasks.edit'), edit_task_path(task), class:"btn btn-outline-warning" %>
+      <%= link_to t('views.tasks.show'), task_path(task), class:"btn btn-outline-primary"  %>
+      <%= link_to t('views.tasks.delete'), task_path(task), method: "delete", data:{ confirm: t('views.tasks.delete_msg')}, class:"btn btn-outline-danger"  %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div id="back_to_admin_page">
+<%= link_to t('views.home'), admin_users_path, class:"btn btn-primary btn-lg btn-block" %>
+</div>
+
+<%= paginate @tasks, :theme => 'twitter-bootstrap-4'  %>

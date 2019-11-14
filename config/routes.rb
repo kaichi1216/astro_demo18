@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :users
+  resources :users, only: %i[show new create edit update]
 
   resources :sessions
+
+  namespace :admin do
+    root 'user#index'
+    resources :users
+  end
 end
