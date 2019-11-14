@@ -92,4 +92,5 @@ zh-TW:
     delete_msg: "確定要刪除此使用者嗎"
     destroy:
       notice: "刪除此使用者"
+      notice_f: "刪除失敗"
       

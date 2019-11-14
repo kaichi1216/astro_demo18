@@ -35,8 +35,11 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: t('admin.destroy.notice')
+    if @user.destroy
+      redirect_to admin_users_path, notice: t('admin.destroy.notice')
+    else  
+      redirect_to admin_users_path, notice: t('admin.destroy.notice_f')
+    end
   end
 
   private
@@ -47,7 +50,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def search_user_tasks
-    @q = Task.includes(:user).where(users:{id: @user.id}).ransack(params[:q])
+    @q = Task.includes(:user).where(users: {id: @user.id}).ransack(params[:q])
   end
 
   def user_params

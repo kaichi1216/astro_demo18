@@ -92,4 +92,5 @@ zh-TW:
     delete_msg: "Are you sure?"
     destroy:
       notice: "delete done"
+      notice_f: "destroy false"
   
