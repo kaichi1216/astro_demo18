@@ -15,7 +15,7 @@
 puts "建立人造人1號"
 user1 = User.create(username: "人造人17號", email: "robot17@gmail.com", password: '123456')
 puts "以建立"
-
+# user1 = User.find_by(username: '人造人17號')
 puts "Generating 10 Task..."
 10.times do |i|
   user1.tasks.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,

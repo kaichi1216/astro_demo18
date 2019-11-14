@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :tasks
+  has_many :tasks, dependent: :destroy
   validates :username, presence: true
   validate_email = /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   validates :email, presence: true, format: { with: validate_email }

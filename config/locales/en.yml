@@ -19,6 +19,7 @@ zh-TW:
       deadline: "Deadline"
       username: "username"
       edit: "Edit"
+      show: "Show"
       delete: "Delete"
       delete_msg: "Delete task, are you really sure?"
       state: "state"
@@ -36,6 +37,7 @@ zh-TW:
     user:
       username: "username"
       email: "email"
+      tasks_count: "Tasks_count"
       password: "password"
       sign_up: "sign_up"
       create: "sign_up done"
@@ -69,6 +71,7 @@ zh-TW:
     signup: "signup"
     logout: "logout"
     edit: "edit"
+    delete: "delete"
     edit_user: "edit_user"
     profile: "profile"
     newuser: "newuser"
@@ -76,9 +79,17 @@ zh-TW:
     signup_f: "signup false"
     edit_t: "edit success"
     edit_f: "edit false"
+    create: "create_user"
     
   session:
     success: "sign in success"
     unsuccess: "sign in false"
     signout: "sign out success"
+
+  admin:
+    user:
+      all_menber: "All_menber"
+    delete_msg: "Are you sure?"
+    destroy:
+      notice: "delete done"
   

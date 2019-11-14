@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   validates :task, presence: true
   scope :ordered_by_deadline, -> { order(deadline: :asc) }
   enum state: %i[pending processing solved]
