@@ -13,7 +13,7 @@
 # }
 
 puts "建立人造人1號"
-user1 = User.create(username: "人造人17號", email: "robot17@gmail.com", password: '123456')
+user1 = User.create(username: "人造人17號", email: "robot17@gmail.com", password: '123456', role: 'admin')
 puts "以建立"
 puts "Generating 10 Task..."
 10.times do |i|

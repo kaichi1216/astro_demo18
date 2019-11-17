@@ -93,4 +93,10 @@ zh-TW:
     destroy:
       notice: "delete done"
       notice_f: "destroy false"
+    identity: "identity"
+    menber: "menber"
+    admin: "admin"
+    not_admin: "you are not admin"
+    back_end: "admin_back_end"
+    front_end: "front_end"
   

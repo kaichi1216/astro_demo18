@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::BaseController
   before_action :find_user, only: %i[edit update show destroy]
   before_action :search_user_tasks, only: [:show]
 
@@ -27,7 +27,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    if @user.update(filter_params)
+    if @user.toggle!(filter_params)
       redirect_to user_path(@user), notice: t('user.edit_t')
     else  
       render :edit, notice: t('user.edit_f')
@@ -38,7 +38,7 @@ class Admin::UsersController < ApplicationController
     if @user.destroy
       redirect_to admin_users_path, notice: t('admin.destroy.notice')
     else  
-      redirect_to admin_users_path, notice: t('admin.destroy.notice_f')
+      redirect_to admin_users_path, notice: "#{@user.errors[:base]}"
     end
   end
 
@@ -54,7 +54,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :email, :password)
+    params.require(:user).permit(:username, :email, :password, :role)
   end
 
   def filter_params
