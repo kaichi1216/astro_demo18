@@ -6,7 +6,8 @@
       </div>
       <div class="card-body">
         <p><%= t('views.user.username') %>: <%= @user.username %></p>          
-        <p><%= t('views.user.email') %>: <%= @user.email %></p>          
+        <p><%= t('views.user.email') %>: <%= @user.email %></p>
+        <p><%= t('admin.identity') %>: <%= identity(@user.role) %></p>           
       </div>
     </div>
   </div>
