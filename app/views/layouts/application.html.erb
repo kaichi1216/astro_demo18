@@ -19,7 +19,7 @@
         <%= link_to t('user.edit'),  edit_user_path(current_user), class: 'dropdown-item' %>
         <div class="dropdown-divider"></div>
         <%= link_to t('user.logout'), logout_path, method: "delete", class: 'dropdown-item' %>
-        <% if current_user.role == 'admin' %>
+        <% if self.is_admin? %>
         <%= link_to "管理者介面", admin_users_path, class: 'dropdown-item' %>
         <% end %>
       </div>
@@ -43,5 +43,28 @@
   <div class="container">
     <%= yield %>
   </div>
+
+  <script>
+
+    $( "#dropdown" ).select2({
+      language: "zh-TW"
+    });
+    $(document).on('turbolinks:load', function(){
+      $("#task_tag_items").select2({
+        tags: true,
+        createTag: function(params){
+          var term = $.trim(params.term);
+          if(term === '') {
+            return null;
+        }
+          return {
+            id: term,
+            text: term,
+            newTag: true
+          }
+        }
+      })
+    });
+  </script>
   </body>
 </html>

@@ -12,7 +12,9 @@ class User < ApplicationRecord
   def final_admin
     return unless self.role == 'admin'
       if User.where(role: 'admin').count == 1
-        halt msg: "最後一位使用者無法被刪除"
+        errors.add(:base, I18n.t('admin.final_admin')) 
+        throw(:abort) 
+        # halt msg: I18n.t('admin.final_admin')
       end
   end
 

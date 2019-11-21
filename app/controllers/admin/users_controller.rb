@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :find_user, only: %i[show destroy]
+  before_action :find_user, only: %i[edit update show destroy]
   before_action :search_user_tasks, only: [:show]
 
   def index
@@ -29,8 +29,7 @@ class Admin::UsersController < Admin::BaseController
   #管理者可以在頁面修改會員身份
   def update
     @user = User.find_by(id: params[:id])
-    @admin = current_user
-    if @admin.role == 'admin'
+    if self.is_admin?
       @user.update_columns(filter_params)
       redirect_to user_path(@user), notice: t('user.edit_t')
     else  

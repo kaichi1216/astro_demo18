@@ -4,7 +4,7 @@ class Admin::BaseController < ApplicationController
 
 
   def authenticate_admin
-    redirect_to root_path, notice: t('admin.not_admin') unless current_user.role == 'admin'
+    redirect_to root_path, notice: t('admin.not_admin') unless self.is_admin?
   end
 
 end

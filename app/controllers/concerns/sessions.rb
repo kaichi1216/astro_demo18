@@ -17,6 +17,6 @@ module Sessions
   end
 
   def is_admin?
-    self.role == 'admin'
+    current_user&.role == 'admin'
   end
 end
