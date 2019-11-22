@@ -19,7 +19,7 @@
         <%= link_to t('user.edit'),  edit_user_path(current_user), class: 'dropdown-item' %>
         <div class="dropdown-divider"></div>
         <%= link_to t('user.logout'), logout_path, method: "delete", class: 'dropdown-item' %>
-        <% if self.is_admin? %>
+        <% if is_admin? %>
         <%= link_to "管理者介面", admin_users_path, class: 'dropdown-item' %>
         <% end %>
       </div>

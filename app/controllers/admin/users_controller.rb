@@ -24,11 +24,9 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def edit
-    @user = User.find_by(id: params[:id])
   end
   #管理者可以在頁面修改會員身份
   def update
-    @user = User.find_by(id: params[:id])
     if self.is_admin?
       @user.update_columns(filter_params)
       redirect_to user_path(@user), notice: t('user.edit_t')
