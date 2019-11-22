@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
   def create
     if @user && @user.authenticate(params[:session][:password])
       login @user
-      redirect_to root_path, notice: t('user.signup_t')
+      redirect_to root_path, notice: t('session.success')
     else  
-      render :new, notice: t('user.signup_f')
+      render :new, notice: t('session.unsuccess')
     end
   end
 

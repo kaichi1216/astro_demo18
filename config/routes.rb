@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :users, only: %i[show new create edit update]
+  resources :users, controller: 'users'
 
   resources :sessions
 

@@ -37,7 +37,7 @@ zh-TW:
     user:
       username: "帳號"
       email: "信箱"
-      tasks_count: "任務數量"
+      tasks_count: "數量"
       password: "密碼"
       sign_up: "註冊"
       create: "註冊完成"
@@ -93,4 +93,11 @@ zh-TW:
     destroy:
       notice: "刪除此使用者"
       notice_f: "刪除失敗"
+    identity: "身份"
+    menber: "會員"
+    admin: "管理員"
+    not_admin: "您的權限不足"
+    final_admin: "最後一位使用者無法刪除囉"
+    back_end: "後台管理"
+    front_end: "前台管理"
       
