@@ -5,11 +5,11 @@ class TasksController < ApplicationController
 
   def index
     # @tasks = @q.result.ordered(sort_params).page(params[:page]).per(10)
-    @tasks = @q.result.ordered(sort_params).where(user: current_user.id).page(params[:page]).per(10)
+    @tasks = @q.result.includes(:tags, :user).where(user: current_user.id).ordered(sort_params).page(params[:page]).per(10)
   end
 
   def search
-    @tasks = @q.result(distinct: true).where(user: current_user.id).ordered_by_deadline.page(params[:page]).per(10)
+    @tasks = @q.result(distinct: true).includes(:user, :tags).where(user: current_user.id).ordered_by_deadline.page(params[:page]).per(10)
   end
 
   def new
@@ -63,7 +63,7 @@ class TasksController < ApplicationController
   private
     
   def task_params
-    params.require(:task).permit(:task, :content, :deadline, :state, :priority)
+    params.require(:task).permit(:task, :content, :deadline, :state, :priority, {tag_items:[]})
   end
 
   def find_task

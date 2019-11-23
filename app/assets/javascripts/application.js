@@ -16,4 +16,7 @@
 //= require_tree .
 //= require jquery3
 //= require popper
+//= require select2
+//= require select2_locale_"zh-TW"
 //= require bootstrap-sprockets
+

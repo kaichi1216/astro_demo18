@@ -18,6 +18,7 @@ zh-TW:
       date: "date"
       deadline: "Deadline"
       username: "username"
+      tag: "tag"
       edit: "Edit"
       show: "Show"
       delete: "Delete"

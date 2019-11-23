@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "tasks#index"
-  get 'sessions/new'
+  # get 'sessions/new'
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -12,12 +12,15 @@ Rails.application.routes.draw do
       get :search
     end
   end
+
   resources :users, controller: 'users'
-
-  resources :sessions
-
   namespace :admin do
     root 'user#index'
     resources :users
+  end
+
+  #加上錯誤頁面導向 如需處理其他新的錯誤頁面 方便再擴增
+  %w(404 422 500).each do |code|
+    get code, to: "errors#show", code: code
   end
 end

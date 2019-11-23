@@ -1,4 +1,12 @@
 FactoryBot.define do
+  factory :tagging do
+    
+  end
+
+  factory :tag do
+    
+  end
+
   factory :user do
     sequence(:username) { |num| "User #{num}" }
     sequence(:email) { |num| "#{num}@gmail.com" }
