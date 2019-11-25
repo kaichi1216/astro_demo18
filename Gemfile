@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'select2-rails', '~> 4.0', '>= 4.0.3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -46,6 +47,7 @@ gem 'bootstrap4-kaminari-views'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'bootstrap-kaminari-views', '~> 0.0.5'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

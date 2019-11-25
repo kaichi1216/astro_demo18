@@ -9,13 +9,13 @@ class SessionsController < ApplicationController
       login @user
       redirect_to root_path, notice: t('session.success')
     else  
-      render :new, notice: t('session.unsuccess')
+      redirect_to login_path, notice: t('session.unsuccess')
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, notice: t('session.signout')
+    redirect_to login_path, notice: t('session.signout')
   end
 
   private

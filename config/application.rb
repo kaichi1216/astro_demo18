@@ -20,5 +20,7 @@ module Test18
     # the framework and any gems in your application.
     #setup timezone = taipei
     config.time_zone = "Taipei"
+
+    config.exceptions_app = self.routes
   end
 end

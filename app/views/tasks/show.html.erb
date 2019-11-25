@@ -7,6 +7,7 @@
       <td scope="col"><%= t('views.tasks.username') %></td>
       <td scope="col"><%= t('views.tasks.deadline') %></td>
       <td scope="col"><%= t('views.tasks.content') %></td>
+      <td scope="col"><%= t('views.tasks.tag') %></td>
       <td scope="col"><%= t('views.tasks.state') %></td>
       <td scope="col"><%= t('views.tasks.priority') %></td>
     </tr>
@@ -17,6 +18,7 @@
       <td scope="row"><%= @task.user.username %></td>
       <td scope="row"><%= (@task.deadline).strftime("%B %d, %Y %H:%M") %></td>
       <td scope="row"><%= @task.content %></td>
+      <td scope="row"><%= render_task_tags(task.tags) %></td>
       <td scope="row"><%= task_state(@task.state) %></td>
       <td scope="row"><%= task_priority(@task.priority) %></td>
     </tr>
