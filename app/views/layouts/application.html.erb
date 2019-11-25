@@ -46,10 +46,10 @@
 
   <script>
 
-    $( "#task_tag_items" ).select2({
-      language: "zh-TW"
-    });
     $(document).on('turbolinks:load', function(){
+      $( "#task_tag_items" ).select2({
+        language: "zh-TW"
+      });
       $("#task_tag_items").select2({
         tags: true,
         createTag: function(params){

@@ -23,7 +23,7 @@
   <%= f.input :priority, label: t('views.tasks.priority'), collection: [:low, :middle, :high], class:"form-control" %>
   </div>
   <div class="form-group">
-  <%= f.input :tag_items, label: t('views.tasks.tag'), as: :select, collection: Tag.order(:name), label_method: :name,value_method: :name, input_html: {multiple: true} %>
+  <%= f.input :tag_items, label: t('views.tasks.tag'), as: :select, collection: all_tags, label_method: :name, value_method: :name, input_html: {multiple: true} %>
   </div>
   <%= f.button :submit, t('views.submit_btn'), class: 'btn btn-success btn-lg' %>
 <% end %>

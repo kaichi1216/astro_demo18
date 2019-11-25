@@ -101,4 +101,11 @@ zh-TW:
     final_admin: "最後一位使用者無法刪除囉"
     back_end: "後台管理"
     front_end: "前台管理"
+    
+  error:
+    404_page: '404頁面'
+    500_page: '500頁面'
+    error_msg: '抱歉，您要訪問的頁面不存在！'
+    server_error: '抱歉，伺服器內部出錯，請從新整理'
+
       

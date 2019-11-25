@@ -32,8 +32,8 @@ class Task < ApplicationRecord
   end
 
   def tag_list=(names)
-    self.tags = names.split(',').map do |item|
-      Tag.where(name: item.strip).first_or_create!
+    names.split.filter { |item| !item.strip.blank? }.map do |item|
+      Tag.where(name: item).first_or_create!
     end
   end  
 

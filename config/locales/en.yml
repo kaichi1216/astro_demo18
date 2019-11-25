@@ -101,3 +101,9 @@ zh-TW:
     back_end: "admin_back_end"
     front_end: "front_end"
   
+  error:
+    404_page: '404_page'
+    500_page: '500_page'
+    error_msg: 'sorry! this page is not exist!!'
+    server_error: 'sorry! server is not work please reload!'
+  

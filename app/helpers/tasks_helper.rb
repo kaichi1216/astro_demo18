@@ -40,7 +40,11 @@ module TasksHelper
     link_to t("views.tasks.#{field}"), tasks_path(sort: "#{field}_#{link_order}")
   end
 
-  def task_tags(tags)
+  def render_task_tags(tags)
     tags.map(&:name).map{|tag| "<span class='badge badge-primary'>#{tag}</span>"}.join(' ').html_safe
+  end
+
+  def all_tags
+    Tag.order(:name)
   end
 end
