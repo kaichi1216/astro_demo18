@@ -39,11 +39,11 @@ module TasksHelper
     end
     link_to t("views.tasks.#{field}"), tasks_path(sort: "#{field}_#{link_order}")
   end
-
+  # tags用map把每個標籤名字找出來 並給他html css 樣式 最後 加上 html.safe 不然會出現非預期畫面object 
   def render_task_tags(tags)
     tags.map(&:name).map{|tag| "<span class='badge badge-primary'>#{tag}</span>"}.join(' ').html_safe
   end
-
+  #找出所有的Tag
   def all_tags
     Tag.order(:name)
   end
