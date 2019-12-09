@@ -73,7 +73,7 @@ class TasksController < ApplicationController
   def search_params
     @q = Task.ransack(params[:q])
   end
-
+  #要宣告一個擁有多字串的 Array 陣列時，使用 %w
   def sort_params
     field, order = params[:sort].to_s.split('_')
     return unless field.in?(%w[state deadline priority])

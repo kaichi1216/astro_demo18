@@ -40,7 +40,7 @@ class Task < ApplicationRecord
   def tag_items
     tags.map(&:name)
   end
-
+  #compact 刪除nil 元素
   def tag_items=(names)
     self.tags = names.map{ |item| Tag.where(name: item.strip).first_or_create! unless item.blank?}.compact!
   end
