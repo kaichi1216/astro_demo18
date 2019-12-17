@@ -18,7 +18,7 @@ class Task < ApplicationRecord
     end
 
     event :done do
-      transitions from: %i[pending, processing], to: :solved
+      transitions from: %i[pending processing], to: :solved
     end
   end
 
