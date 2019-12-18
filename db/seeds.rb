@@ -12,8 +12,32 @@
 #   puts "end"
 # }
 
-puts "建立人造人1號"
+puts "建立人造人17號"
 user1 = User.create(username: "人造人17號", email: "robot17@gmail.com", password: '123456', role: 'admin')
+puts "以建立"
+puts "Generating 10 Task..."
+1000.times do |i|
+  user1.tasks.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,
+                    deadline: Time.now,
+                    state: ["pending", "processing", "solved"].sample,
+                    priority: ['low', 'middle', 'high'].sample)
+end
+puts "Done!"
+
+puts "建立人造人19號"
+user1 = User.create(username: "人造人19號", email: "robot19@gmail.com", password: '123456', role: 'admin')
+puts "以建立"
+puts "Generating 10 Task..."
+10.times do |i|
+  user1.tasks.create(task: ["吃飯", "睡覺", "打球", "健身", "游泳", "看電影"].sample,
+                    deadline: Time.now,
+                    state: ["pending", "processing", "solved"].sample,
+                    priority: ['low', 'middle', 'high'].sample)
+end
+puts "Done!"
+
+puts "建立人造人18號"
+user1 = User.create(username: "人造人18號", email: "robot18@gmail.com", password: '123456', role: 'admin')
 puts "以建立"
 puts "Generating 10 Task..."
 10.times do |i|

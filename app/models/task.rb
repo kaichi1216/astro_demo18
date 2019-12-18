@@ -26,17 +26,17 @@ class Task < ApplicationRecord
   def self.tagged_with(name)
     Tag.find_by!(name: name).tasks
   end
-
+  #getter
   def tag_list
     tags.map(&:name).join(', ')
   end
-
+  #setter
   def tag_list=(names)
     names.split.filter { |item| !item.strip.blank? }.map do |item|
       Tag.where(name: item).first_or_create!
-    end
+    end     
   end  
-
+  #取出所有的tag name
   def tag_items
     tags.map(&:name)
   end
