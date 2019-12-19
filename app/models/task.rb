@@ -1,13 +1,5 @@
 class Task < ApplicationRecord
-  belongs_to :user, counter_cache: true
-  validates :task, presence: true
-  scope :ordered_by_deadline, -> { order(deadline: :asc) }
-  enum state: %i[pending processing solved]
-  enum priority: %i[low middle high]
-  scope :ordered, lambda { |order_by_port| order(order_by_port || 'deadline ASC')  }
-  has_many :taggings, :dependent => :nullify
-  has_many :tags, through: :taggings, :dependent => :nullify
-  
+
   include AASM
   aasm column: :state, enum: true do
     state :pending, initial: true
@@ -21,10 +13,20 @@ class Task < ApplicationRecord
       transitions from: %i[pending processing], to: :solved
     end
   end
+  
+  belongs_to :user, counter_cache: true
+  has_many :taggings, dependent: :destroy
+  has_many :tags, through: :taggings
+  validates :task, presence: true
+  scope :ordered_by_deadline, -> { order(deadline: :asc) }
+  scope :ordered, lambda { |order_by_port| order(order_by_port || 'deadline ASC')  }
+  enum state: %i[pending processing solved]
+  enum priority: %i[low middle high]
+  
 
 
   def self.tagged_with(name)
-    Tag.find_by!(name: name).tasks
+    Tag.find_by(name: name).tasks
   end
   #getter
   def tag_list

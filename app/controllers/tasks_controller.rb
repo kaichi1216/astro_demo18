@@ -5,7 +5,7 @@ class TasksController < ApplicationController
 
   def index
     # @tasks = @q.result.ordered(sort_params).page(params[:page]).per(10)
-    @tasks = @q.result.includes(:tags, :user).where(user: current_user.id).ordered(sort_params).page(params[:page]).per(10)
+    @tasks = @q.result(distinct: true).includes(:tags, :user).where(user: current_user.id).ordered(sort_params).page(params[:page]).per(10)
   end
 
   def search

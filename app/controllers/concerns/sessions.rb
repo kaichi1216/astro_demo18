@@ -16,7 +16,7 @@ module Sessions
     @current_user = nil
   end
   #是否是管理員 使用 &. 不符合的話 會回傳 nil 而不會噴錯
-  def is_admin?
+  def admin?
     current_user&.role == 'admin'
   end
 end

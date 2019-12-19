@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-
+  #使用 collection 要對複數資料做操作
   resources :tasks do
     collection do
       get :search
