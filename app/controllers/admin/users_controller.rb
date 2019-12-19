@@ -27,9 +27,9 @@ class Admin::UsersController < Admin::BaseController
   end
   #管理者可以在頁面修改會員身份
   def update
-    if is_admin?
+    if admin?
       @user.update_columns(filter_params)
-      redirect_to user_path(@user), notice: t('user.edit_t')
+      redirect_to admin_users_path, notice: t('user.edit_t')
     else  
       render :edit, notice: t('user.edit_f')
     end
