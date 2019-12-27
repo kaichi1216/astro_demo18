@@ -24,7 +24,8 @@ Things you may want to cover:
 
 # 任務管理系統 model 關係圖
 
-<img src="app/assets/images/blog/erm.png">
+
+<img src="app/assets/images/model/ERM.png">
 
 
 * Deployment instructions
