@@ -24,7 +24,7 @@ Things you may want to cover:
 
 # 任務管理系統 model 關係圖
 
-![model_ERM](https://github.com/kaichi1216/test18/commit/da098232f73f86b228db4d6a625dece96d6d21ce?short_path=3f05879#diff-3f058795ad5f22a5fdeae220c8bf9da6)
+<img src="app/assets/images/model/model.jpg">
 
 
 * Deployment instructions
