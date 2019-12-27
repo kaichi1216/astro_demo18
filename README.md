@@ -24,7 +24,7 @@ Things you may want to cover:
 
 # 任務管理系統 model 關係圖
 
-<img src="/images/model.jpg">
+<img src="/images/model/model.jpg">
 
 
 * Deployment instructions
