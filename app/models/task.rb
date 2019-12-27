@@ -18,7 +18,7 @@ class Task < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   validates :task, presence: true
-  scope :ordered_by_deadline, -> { order(deadline: :asc) }
+  scope :ordered_by_deadline, lambda { order(deadline: :asc) }
   scope :ordered, lambda { |order_by_port| order(order_by_port || 'deadline ASC')  }
   enum state: %i[pending processing solved]
   enum priority: %i[low middle high]
