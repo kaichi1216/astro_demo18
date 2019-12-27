@@ -21,6 +21,12 @@ Things you may want to cover:
  
 * Services (job queues, cache servers, search engines, etc.)
 
+
+# 任務管理系統 model 關係圖
+
+<img src="/images/model.jpg">
+
+
 * Deployment instructions
   Deploy on heroku
   # 步驟1
