@@ -23,10 +23,7 @@ Things you may want to cover:
 
 
 # 任務管理系統 model 關係圖
-
-
 <img src="app/assets/images/model/erm.png">
-
 
 * Deployment instructions
   Deploy on heroku
