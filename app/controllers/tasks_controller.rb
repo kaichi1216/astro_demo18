@@ -4,12 +4,9 @@ class TasksController < ApplicationController
   before_action :authenticate_user
 
   def index
-    # @tasks = @q.result.ordered(sort_params).page(params[:page]).per(10)
-    @tasks = @q.result(distinct: true).includes(:tags, :user).where(user: current_user.id).ordered(sort_params).page(params[:page]).per(10)
   end
 
   def search
-    @tasks = @q.result(distinct: true).includes(:user, :tags).where(user: current_user.id).ordered_by_deadline.page(params[:page]).per(10)
   end
 
   def new
@@ -72,6 +69,7 @@ class TasksController < ApplicationController
 
   def search_params
     @q = Task.ransack(params[:q])
+    @tasks = @q.result(distinct: true).includes(:tags, :user).where(user: current_user).page(params[:page]).per(10).ordered(sort_params)
   end
   #要宣告一個擁有多字串的 Array 陣列時，使用 %w
   def sort_params
@@ -81,5 +79,4 @@ class TasksController < ApplicationController
   
     "#{field} #{order.upcase}"
   end
-
 end
