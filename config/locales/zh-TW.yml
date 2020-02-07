@@ -98,7 +98,7 @@ zh-TW:
     menber: "會員"
     admin: "管理員"
     not_admin: "您的權限不足"
-    final_admin: "最後一位使用者無法刪除囉"
+    final_admin: "oops! 您已是最後一位管理員，刪除的話就沒有管理員囉"
     back_end: "後台管理"
     front_end: "前台管理"
     
