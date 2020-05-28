@@ -42,7 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rails-i18n', '~> 5.1'
 gem 'aasm', '~> 5.0', '>= 5.0.6'
 gem 'ransack', '~> 2.3'
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem 'bootstrap4-kaminari-views'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
