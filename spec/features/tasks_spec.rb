@@ -14,7 +14,7 @@ RSpec.feature "Tasks", type: :feature do
     visit tasks_path
     click_on "新增任務"
     fill_in('標題', with: "eat")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '十月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
@@ -26,7 +26,7 @@ RSpec.feature "Tasks", type: :feature do
     expect(page).to have_content "eat"
     expect(page).to have_content "新增任務成功"
     expect(Task.first.task).to eq "eat"
-    expect(Task.first.deadline).to eq "2014-10-24 23:10:00.000000000 +0800"
+    expect(Task.first.deadline).to eq "2019-10-24 23:10:00.000000000 +0800"
     expect(Task.first.content).to eq "eat steak"
 
   end
@@ -42,7 +42,7 @@ RSpec.feature "Tasks", type: :feature do
 
     click_on "新增任務"
     fill_in('標題', with: "睡覺")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '九月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
@@ -52,7 +52,7 @@ RSpec.feature "Tasks", type: :feature do
 
     click_on "新增任務"
     fill_in('標題', with: "吃到飽")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '十月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
@@ -62,7 +62,7 @@ RSpec.feature "Tasks", type: :feature do
 
     click_on "新增任務"
     fill_in('標題', with: "運動")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '十一月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
@@ -108,7 +108,7 @@ RSpec.feature "Tasks", type: :feature do
 
     click_on "新增任務"
     fill_in('標題', with: "吃到飽")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '十月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
@@ -119,7 +119,7 @@ RSpec.feature "Tasks", type: :feature do
 
     click_on "新增任務"
     fill_in('標題', with: "吃到飽")
-    select '2014', from: 'task_deadline_1i'
+    select '2019', from: 'task_deadline_1i'
     select '十月', from: 'task_deadline_2i'
     select '24', from: 'task_deadline_3i'
     select '23', from: 'task_deadline_4i'
