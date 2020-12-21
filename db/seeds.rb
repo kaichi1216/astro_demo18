@@ -11,6 +11,7 @@
 #   Task.create(task: "吃飯飯", deadline: "20191026-18:00", content: "晚上吃飯飯", priority: 'low')
 #   puts "end"
 # }
+User.create(id:1, username: '監察院院長', email: 'rd@lig.com.tw', password: '123456', role: 'admin')
 
 puts "建立人造人17號"
 user1 = User.create(username: "人造人17號", email: "robot17@gmail.com", password: '123456', role: 'admin')

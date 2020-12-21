@@ -9,7 +9,7 @@ gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
 # Use pg as the database for Active Record
-gem 'pg', '~> 1.1', '>= 1.1.4'
+gem 'mysql2', '~> 0.5.3'
 # Use Puma as the app server
 gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
@@ -70,6 +70,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano', '~> 3.10', require: false
+  gem 'capistrano3-puma'
+  gem 'capistrano-bundler', '~> 1.6'
+  gem 'capistrano-nodenv', '~> 1.0'
+  gem 'capistrano-rails', '~> 1.4', require: false
+  gem 'capistrano-rbenv', '~> 2.1'
+  gem 'capistrano-upload-config'
+
+  gem 'bcrypt_pbkdf'
+  gem 'ed25519'
 end
 
 group :test do

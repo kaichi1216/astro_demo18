@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_11_22_110408) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "tag_id"
     t.bigint "task_id"
     t.datetime "created_at", null: false
@@ -24,13 +21,13 @@ ActiveRecord::Schema.define(version: 2019_11_22_110408) do
     t.index ["task_id"], name: "index_taggings_on_task_id"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "tasks", force: :cascade do |t|
+  create_table "tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "task", null: false
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -42,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_110408) do
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "username", default: "", null: false
     t.string "email", default: "", null: false
     t.datetime "created_at", null: false
